@@ -20,6 +20,11 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/careers")
+def careers():
+    return render_template("careers.html")
+
+
 if __name__ == "__main__": # __main__ wrapped in "" is the default module in Python
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
