@@ -1,5 +1,5 @@
 import os
-from flask import Flask # importing Flask class from flask
+from flask import Flask, render_template # importing Flask class from flask
 
 
 app = Flask(__name__) # creates an instance and store in the variable app, first argument __name__ is the name of application module, single name uses double underscore
@@ -7,7 +7,7 @@ app = Flask(__name__) # creates an instance and store in the variable app, first
 
 @app.route("/") # decorator, starts with @ , wraps the function
 def index():
-    return "Hello, World"
+    return render_template("index.html")
 
 if __name__ == "__main__": # __main__ wrapped in "" is the default module in Python
     app.run(
