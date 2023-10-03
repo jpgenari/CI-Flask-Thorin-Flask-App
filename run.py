@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template # importing Flask class from flask
+from flask import Flask, render_template, request # importing Flask class from flask
 
 
 app = Flask(__name__) # creates an instance and store in the variable app, first argument __name__ is the name of application module, single name uses double underscore
@@ -30,8 +30,11 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
+    if request.method == "POST":
+        print(request.form.get("name"))
+        print(request.form["email"])
     return render_template("contact.html", page_title="Contact")
 
 
